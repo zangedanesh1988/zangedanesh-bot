@@ -1,7 +1,13 @@
+
+import sys
+print("🔥 BOT STARTING...", file=sys.stderr)
 import os
 import requests
 from flask import Flask, request, jsonify
 
+@app.before_first_request
+def startup_log():
+    print("✅ Flask is running", flush=True)
 app = Flask(__name__)
 
 BALE_TOKEN = os.environ.get("BALE_TOKEN", "2112844221:6qmjOR4mOG8nMD4RzNpT3j2g-5C8F43_pSI")
